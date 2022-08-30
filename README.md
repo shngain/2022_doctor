@@ -1,1 +1,1 @@
-cureplus is a medical consultation doctor and diagnostic appointment android application.
+cureplus is an android application for medical consulting and diagnostic appointments.
