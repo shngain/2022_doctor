@@ -247,6 +247,7 @@ export class WelcomePage implements AfterViewInit {
       });
 
       document.getElementById('tv_response').innerHTML = output;
+      
     }
 
 
