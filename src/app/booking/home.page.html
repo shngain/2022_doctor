@@ -1,0 +1,231 @@
+<ion-header class="flat">
+    <ion-toolbar class="colore">
+        <ion-buttons slot="start">
+            <ion-button color="dark" (click)="goBack()">
+                <ion-icon name="arrow-back-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title color="dark" text-center>Booking</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <div class="container">
+        <!-- code here -->
+        <div class="confetti" *ngIf="celebration">
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+        </div>
+        <div class="card">
+            <div class="card-image">
+                <h2 class="card-heading">
+                    Book your slot
+                </h2>
+            </div>
+            <form class="card-form">
+                <div class="input">
+                    <input type="text" class="input-field" id="name" required/>
+                    <label class="input-label">Patient name</label>
+                </div>
+
+                <div class="input">
+                    <input type="number" class="input-field" id="phone" required/>
+                    <label class="input-label">Phone</label>
+                </div>
+
+                <div class="input">
+                    <input type="text" class="input-field" id="address" required/>
+                    <label class="input-label">Address</label>
+                </div>
+
+                <div class="input">
+                    <label class="input-label1">Blood Group</label>
+                    <ion-item>
+                        <ion-label>Select Blood Group</ion-label>
+                        <ion-select value="A+" interface="action-sheet" id="bloodgroup">
+                            <ion-select-option value="A+">A+</ion-select-option>
+                            <ion-select-option value="A-">A-</ion-select-option>
+                            <ion-select-option value="B+">B+</ion-select-option>
+                            <ion-select-option value="B-">B-</ion-select-option>
+                            <ion-select-option value="0+">0+</ion-select-option>
+                            <ion-select-option value="0-">0-</ion-select-option>
+                            <ion-select-option value="AB+">AB+</ion-select-option>
+                            <ion-select-option value="AB-">AB-</ion-select-option>
+                            <ion-select-option value="Not Sure">Not Sure</ion-select-option>
+                        </ion-select>
+                    </ion-item>
+                    <!-- <ion-radio-group id="bloodgroup">
+              <ion-item>
+                <ion-label>A+</ion-label>
+                <ion-radio slot="start" color="success" value="A+"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>A-</ion-label>
+                <ion-radio slot="start" color="success" value="A-"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>B+</ion-label>
+                <ion-radio slot="start" color="success" value="B+"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>B-</ion-label>
+                <ion-radio slot="start" color="success" value="B-"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>O+</ion-label>
+                <ion-radio slot="start" color="success" value="O+"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>O-</ion-label>
+                <ion-radio slot="start" color="success" value="O+"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>AB+</ion-label>
+                <ion-radio slot="start" color="success" value="AB+"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>AB-</ion-label>
+                <ion-radio slot="start" color="success" value="AB-"></ion-radio>
+              </ion-item>
+          </ion-radio-group> -->
+                </div>
+                <!-- <div class="input">
+          <input type="text" class="input-field"  id="bloodgroup" required/>
+          <label class="input-label">Blood Group</label>
+        </div> -->
+
+                <div class="input">
+
+
+                    <ion-item>
+                        <ion-label>Select Date</ion-label>
+                        <ion-datetime displayFormat="DD-MMM-YY" id="bookingdate"></ion-datetime>
+                    </ion-item>
+                    <label class="input-label1">Appointment Date</label>
+                </div>
+
+
+                <div class="input">
+                    <label class="input-label1">Coupon</label>
+                    <ion-row>
+                        <ion-col>
+                            <div> <input type="text" class="input-field" placeholder="100OFF" id='offer' required/></div>
+                        </ion-col>
+                        <ion-col>
+                            <div style="text-align: right;">
+                                <ion-button size="small" (click)="offer()">Apply</ion-button>
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                </div>
+
+                <div class="input">
+                    <label class="input-label1">Mode of Consultation</label>
+                    <ion-radio-group id="mode">
+                        <div *ngFor='let data of modees'>
+                            <ion-item>
+                                <ion-label>{{data.mode}}</ion-label>
+                                <ion-radio slot="start" color="success" value="{{data.mode}}"></ion-radio>
+                            </ion-item>
+                        </div>
+                    </ion-radio-group>
+                </div>
+
+                <div class="input">
+                    <label class="input-label1">Select your slot</label>
+                    <ion-radio-group id="slot" (change)="checktest()">
+                        <div *ngFor='let data of row_data'>
+                            <ion-item>
+                                <ion-label>{{data.slots}}</ion-label>
+                                <ion-radio (click)='checktest1()' slot="start" color="success" value="{{data.slots}}"></ion-radio>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label>Other</ion-label>
+                                <ion-radio (click)='checktest()' slot="start" color="success" value="Other"></ion-radio>
+                            </ion-item>
+                        </div>
+                    </ion-radio-group>
+                </div>
+                <div class="input" *ngIf='others'>
+                    <input type="text" class="input-field" id="otherslot" required/>
+                    <label class="input-label">Enter Slot</label>
+                </div>
+
+
+                <hr style="    height: 1px;
+        border-width: 0;
+        color: #6658d3;
+        background-color: #6658d3;
+        margin-top: 34px;
+        margin-bottom: 30px;
+        ">
+                <div class="input">
+
+                    <label class="input-label1">Amout</label>
+
+                    <ion-row>
+                        <ion-col>
+                            <div></div>
+                        </ion-col>
+                        <ion-col>
+                            <div>Total:
+                                <p style="text-align: right; margin-top: -16px;">{{amount}}</p>
+                            </div>
+                            <div>Discount (-):
+                                <p style="text-align: right; margin-top: -16px;">{{offeramount}}</p>
+                            </div>
+                            <div>To Pay:
+                                <p style="text-align: right; margin-top: -16px;">{{totalamount}}</p>
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                </div>
+                <ion-item *ngIf="bookbutton">
+                    <ion-checkbox color="danger" checked slot="start" id="checkbutton"></ion-checkbox>
+                    <ion-label><a href="https://cureplus.online/tnc.php">Terms and Conditions Accepted</a></ion-label>
+                </ion-item>
+                <div class="action" *ngIf="bookbutton">
+                    <button class="action-button" (click)="book()">NEXT</button>
+                </div>
+
+                <div class="input" *ngIf="paymentmethod">
+                    <label class="input-label1">Select Payment Method</label>
+                    <ion-radio-group id="modesssss">
+                        <ion-item>
+                            <ion-label>Pay Now</ion-label>
+                            <ion-radio slot="start" color="success" value="online"></ion-radio>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>Pay During Visit</ion-label>
+                            <ion-radio slot="start" color="success" value="offline"></ion-radio>
+                        </ion-item>
+                    </ion-radio-group>
+                </div>
+
+
+                <div class="action" *ngIf="paybutton">
+                    <button class="action-button" (click)="pay()">BOOK</button>
+                </div>
+
+            </form>
+            <!-- <div class="card-info">
+        <p> <a href="#">Terms and Conditions</a></p>
+      </div> -->
+        </div>
+    </div>
+
+</ion-content>
+<ion-footer class="flat">
+    <footer-tabs>
+    </footer-tabs>
+</ion-footer>

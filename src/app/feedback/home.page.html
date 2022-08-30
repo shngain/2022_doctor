@@ -1,0 +1,88 @@
+<ion-header class="flat">
+  <ion-toolbar class="colore">
+    <ion-title color="dark" text-center>Feedback</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <section class="intro animated fadeIn" *ngIf="showReminder">
+    <img src="assets/images/doctor-intro.jpg" alt="doctor intro">
+    <div class="intro-text">
+      <h2>Hi</h2>
+      <p>It seems, some required profile information are missing or the submitted infromation is not certified. Due to
+        that you've been given limited access to the features of the app.</p>
+      <a (click)="goToProfile()" class="go-btn">Go to Profile</a>
+      <a (click)="dismissReminder()" class="skip-btn">I'll do that later</a>
+    </div>
+  </section>
+    <form>
+      <ion-item lines="full">
+        <ion-label position="floating">Name</ion-label>
+        <ion-input type="text" required id="name"></ion-input>
+      </ion-item>
+  
+      <ion-item lines="full">
+        <ion-label position="floating">Phone</ion-label>
+        <ion-input type="text" required  id="phone"></ion-input>
+      </ion-item>
+  
+      <ion-item lines="full">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="text" required id="email"></ion-input>
+      </ion-item>
+  
+      <ion-item lines="full">
+        <ion-label position="floating">Remark</ion-label>
+        <ion-input type="text" required id="remark"></ion-input>
+      </ion-item>
+
+       <!-- Radio buttons -->
+       <ion-radio-group lines="full" id="callback">
+        <ion-list-header>
+          <ion-label>Need a callback</ion-label>
+        </ion-list-header>
+  
+        <ion-item>
+          <ion-label>Yes</ion-label>
+          <ion-radio slot="start" value="yes" checked></ion-radio>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label>No</ion-label>
+          <ion-radio slot="start" value="no" ></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+  
+      <!-- Checkboxes 
+      <ion-list lines="full">
+        <ion-list-header>
+          <ion-label>Subjects</ion-label>
+        </ion-list-header>
+        <ion-item>
+          <ion-label>English</ion-label>
+          <ion-checkbox></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Maths</ion-label>
+          <ion-checkbox></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Science</ion-label>
+          <ion-checkbox></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>History</ion-label>
+          <ion-checkbox></ion-checkbox>
+        </ion-item>
+      </ion-list>-->
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="primary" expand="block" (click)="loadData()">Submit</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+</ion-content>
+<ion-footer class="flat">
+  <footer-tabs>
+  </footer-tabs>
+</ion-footer>

@@ -1,0 +1,97 @@
+<ion-header class="flat">
+    <ion-toolbar class="colore">
+        <ion-buttons slot="start">
+            <ion-button color="dark" (click)="goBack()">
+                <ion-icon name="arrow-back-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title color="dark" text-center>Location Search</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <section class="intro animated fadeIn" *ngIf="showReminder">
+        <img src="assets/images/doctor-intro.jpg" alt="doctor intro">
+        <div class="intro-text">
+            <h2>Hi</h2>
+            <p>It seems, some required profile information are missing or the submitted infromation is not certified. Due to that you've been given limited access to the features of the app.</p>
+            <a (click)="goToProfile()" class="go-btn">Go to Profile</a>
+            <a class="skip-btn">I'll do that later</a>
+        </div>
+    </section>
+    <div *ngFor='let data of row_data'>
+        <ion-card>
+            <ion-card-header>
+                <ion-grid>
+                    <ion-row>
+                        <ion-avatar>
+                            <ion-col>
+                                <img src="{{data.image}}">
+                            </ion-col>
+                        </ion-avatar>
+                        <ion-col>
+                            <ion-card-title>{{data.type}}</ion-card-title>
+                            <ion-card-subtitle class="classgap">{{data.name}}</ion-card-subtitle>
+                            <ion-card-subtitle class="classgap">{{data.category}}</ion-card-subtitle>
+                            <ion-card-subtitle class="classgap">{{data.rating}}
+                                <ion-icon name="star-half"></ion-icon>
+                            </ion-card-subtitle>
+                            <ion-card-subtitle class="classgap">{{data.address}}</ion-card-subtitle>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-card-header>
+            <!-- <ion-card-content>
+        {{data.address}}
+        </ion-card-content> -->
+            <ion-card-content style="text-align: right;">
+                <ion-row>
+                    <ion-col size="7">
+                        <ion-item *ngIf='data.count!=0 && data.status!="no"'>
+                            <ion-label>Select</ion-label>
+                            <ion-select id="{{data.dataid}}">
+                                <div *ngFor='let dates of datess'>
+                                    <ion-select-option value="{{dates}}">{{dates}}</ion-select-option>
+                                </div>
+                            </ion-select>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col size="5">
+                        <div *ngIf='data.count==0 '>
+                            <ion-button color="danger">Booked</ion-button>
+                        </div>
+                        <div *ngIf='data.count!=0 '>
+                            <ion-button color="success" (click)='view_full(data.id,data.type,data.dataid)'>Available</ion-button>
+                        </div>
+                    </ion-col>
+                </ion-row>
+            </ion-card-content>
+        </ion-card>
+    </div>
+    <!-- <ion-card>
+    <ion-card-header>
+      <ion-grid>
+        <ion-row>
+          <ion-avatar>
+            <ion-col>
+              <img src="https://image.freepik.com/free-vector/doctor-icon-avatar-white_136162-58.jpg">
+            </ion-col>
+          </ion-avatar>
+          <ion-col>
+            <ion-card-title>Iron Man</ion-card-title>
+            <ion-card-subtitle>Medicine</ion-card-subtitle>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-header>
+    <ion-card-content>
+      GMCH, Guwahati
+    </ion-card-content>
+    <ion-card-content>
+      <ion-button color="danger">Booked</ion-button>
+    </ion-card-content>
+  </ion-card> -->
+</ion-content>
+<ion-footer class="flat">
+    <footer-tabs>
+    </footer-tabs>
+</ion-footer>
