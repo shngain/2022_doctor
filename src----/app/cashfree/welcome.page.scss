@@ -1,0 +1,74 @@
+#grid {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+}
+
+.button_grid {
+    display: flex;
+    margin-top: 20px;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+    align-items: center;
+}
+
+#button_grid .payment-buttons {
+    width: 60%;
+    height: 100px;
+    margin-top: 30px;
+}
+
+#grid ion-text {
+    margin: 16px 32px;
+    font-size: 12px;
+}
+
+#grid #upi_icon_containers {
+    display: flex;
+    width: 100%;
+    padding: 16px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.round_icon_buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.upi_icons_text {
+    font-size: 12px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.upi_app_not_found {
+    font-size: 24px;
+    justify-content: center;
+    align-content: center;
+}
+
+.upi_image {
+    width: 50px;
+    height: 50px;
+}
+
+#grid #spinner {
+    margin: 16px;
+    width: 50px;
+    height: 50px;
+}
+
+#grid #tv_response {
+    justify-content: center;
+    margin-left: 24px;
+    margin-right: 24px;
+    font-size: 16px;
+}
