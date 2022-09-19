@@ -1,0 +1,78 @@
+<ion-header class="flat">
+  <ion-toolbar class="colore">
+    <ion-buttons slot="start">
+      <ion-button color="dark" (click)="goBack()">
+        <ion-icon ios="md-arrow-back" md="md-arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="dark" text-center>My Account</ion-title>
+    <ion-buttons slot="end">
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="account-page">
+    <div class="user-header">
+      <!-- <div class="avatar">
+          <img src="//via.placeholder.com/100" alt="...">
+        </div> -->
+      <div class="user-info">
+        <h4>Welcome,</h4>
+        <h5>{{username}}
+          <!-- <span class="verified">
+            <ion-icon ios="ios-checkmark-circle" md="ios-checkmark-circle"></ion-icon>
+          </span> -->
+        </h5>
+      </div>
+    </div>
+    <ion-list class="list-wrapper main-list">
+      <ion-item lines="none" routerDirection="forward" routerLink="/account/my-profile">
+        <ion-icon slot="start" ios="md-person" md="md-person"></ion-icon>
+        <ion-label text-wrap>
+          <h4>Profile</h4>
+          <ion-text color="medium">
+            View profile.
+          </ion-text>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+    <section>
+      <ion-label class="section__title" slot="start">
+        My Appointments
+      </ion-label>
+      <div class="overscroll-wrapper">
+        <ion-slides class="slides__social" [options]="slideOpts">
+          <ion-slide tappable>
+            <div class="card" (click)="goto('/allapointment')">
+              <div class="cover dnetwork"></div>
+              <div class="title">All Appointments</div>
+            </div>
+          </ion-slide>
+        </ion-slides>
+      </div>
+    </section>
+    <section>
+      <ion-label class="section__title" slot="start">
+        Settings
+      </ion-label>
+      <ion-list class="list-wrapper setting-list">
+        <!-- <ion-item lines="inset">
+          <ion-label>Dark Mode</ion-label>
+          <ion-toggle slot="end" (ionChange)="changeUIMode($event)" [checked]="darkMode"></ion-toggle>
+        </ion-item> -->
+        <ion-item lines="inset" class="clickable" (click)="logout()">
+          <ion-label class="logout">Log Out</ion-label>
+        </ion-item>
+      </ion-list>
+    </section>
+    <section>
+      <div class="app-info">
+        <h6>Cure Plus</h6>
+        <small>Version 0.0.5</small>
+      </div>
+    </section>
+  </div>
+</ion-content>
+<ion-footer class="flat">
+  <footer-tabs></footer-tabs>
+</ion-footer>

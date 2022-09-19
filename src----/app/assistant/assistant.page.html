@@ -1,0 +1,78 @@
+<ion-header class="flat">
+  <ion-toolbar class="colore">
+    <ion-buttons slot="start">
+      <ion-button color="dark" (click)="goBack()">
+        <ion-icon ios="md-arrow-back" md="md-arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="dark" text-center>Locations</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <!-- <ion-card>
+    <ion-card-content> -->
+    <ion-grid >
+      <div style="text-align: right;"><ion-button size="small" (click)="reset()">Reset Selection</ion-button></div>
+    </ion-grid>
+    <ion-grid *ngIf='flag'>
+        <ion-row>
+          <ion-col (click)="setlocation('Guwahati')">
+            <div class="container-fluid" text-center>
+              <img src="https://in.bmscdn.com/m6/images/common-modules/regions/mumbai.png" width="50" height="50"> 
+              <p>Guwahati</p>       
+            </div>
+          </ion-col>
+          <ion-col >
+          </ion-col>
+          <ion-col >
+            
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+
+
+      <ion-grid *ngIf="setlocations=='Guwahati'">
+        <ion-row>
+          <ion-col (click)="goto('Beltola')">
+            <div class="container-fluid" text-center>
+              <img src="https://in.bmscdn.com/m6/images/common-modules/regions/mumbai.png" width="50" height="50"> 
+              <p>Beltola</p>       
+            </div>
+          </ion-col>
+          <ion-col (click)="goto('Ganeshguri')">
+            <div class="container-fluid" text-center>
+              <img src="https://in.bmscdn.com/m6/images/common-modules/regions/pune.png" width="50" height="50"> 
+              <p>Ganeshguri</p>             
+            </div>
+          </ion-col>
+          <ion-col (click)="goto('Zoo')">
+            <div class="container-fluid" text-center>
+              <img src="https://in.bmscdn.com/m6/images/common-modules/regions/bang.png" width="50" height="50">   
+              <p>Zoo</p>            
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col (click)="goto('Chandmari')">
+            <div class="container-fluid" text-center>
+              <img src="https://in.bmscdn.com/m6/images/common-modules/regions/mumbai.png" width="50" height="50"> 
+              <p>Chandmari</p>              
+            </div>
+          </ion-col>
+          <ion-col (click)="goto('Paltan Bazar')">
+            <div class="container-fluid" text-center>
+              <img src="https://in.bmscdn.com/m6/images/common-modules/regions/pune.png" width="50" height="50">   
+              <p>Paltan Bazar</p>            
+            </div>
+          </ion-col>
+          <ion-col (click)="goto('Khanapara')">
+            <div class="container-fluid" text-center>
+              <img src="https://in.bmscdn.com/m6/images/common-modules/regions/bang.png" width="50" height="50">   
+              <p>Khanapara</p>            
+            </div>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+    <!-- </ion-card-content>
+  </ion-card> -->
+</ion-content>

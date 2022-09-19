@@ -1,17 +1,22 @@
 <ion-header class="flat">
     <ion-toolbar class="colored">
-        <ion-title color="light" text-center>About Doctor</ion-title>
-    </ion-toolbar>
-</ion-header>
-<ion-content>
-
-    <ion-toolbar>
         <ion-buttons slot="start">
             <ion-button slot="icon-only" class="back-button" color="light" (click)="goBack()">
                 <ion-icon name="arrow-back-outline"></ion-icon>
             </ion-button>
         </ion-buttons>
+        <ion-title color="light" text-center>About Doctor</ion-title>
     </ion-toolbar>
+</ion-header>
+<ion-content>
+
+    <!-- <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button slot="icon-only" class="back-button" color="light" (click)="goBack()">
+                <ion-icon name="arrow-back-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar> -->
     <div class="page__user-profile">
         <app-profile-skeleton *ngIf="dataLoading; else dataLoaded"></app-profile-skeleton>
         <ng-template #dataLoaded>

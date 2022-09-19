@@ -1,0 +1,53 @@
+<ion-header class="flat">
+    <ion-toolbar class="colore">
+        <ion-buttons slot="start">
+            <ion-button color="dark" (click)="goBack()">
+                <ion-icon ios="md-arrow-back" md="md-arrow-back"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title color="dark" text-center>Health Blog</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <section class="intro animated fadeIn" *ngIf="showReminder">
+        <img src="assets/images/doctor-intro.jpg" alt="doctor intro">
+        <div class="intro-text">
+            <h2>Hi</h2>
+            <p>It seems, some required profile information are missing or the submitted infromation is not certified. Due to that you've been given limited access to the features of the app.</p>
+            <a (click)="goToProfile()" class="go-btn">Go to Profile</a>
+            <a class="skip-btn">I'll do that later</a>
+        </div>
+    </section>
+    <div *ngIf="row_data?.length == 0">
+        <p style="text-align: center;
+    color: red;">No Internet</p>
+    </div>
+    <div *ngFor='let data of row_data' (click)='view_full(data.id)'>
+        <ion-card>
+            <img src="{{data.image}}" style="height: 150px;" />
+            <ion-card-header>
+                <ion-card-subtitle> {{data.date}}</ion-card-subtitle>
+                <ion-card-title> {{data.title}}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+                <div class="text">
+                    Author: {{data.author}}
+                </div>
+                <ion-row>
+                    <ion-col size="7" (click)="share()">
+                        <div class="shrebtn">
+                            <img src="../../assets/icon/share.png">
+                        </div>
+                    </ion-col>
+                    <ion-col size="5">
+                        <ion-button color="success" (click)='view_full(data.id)'>Read more</ion-button>
+                    </ion-col>
+                </ion-row>
+            </ion-card-content>
+        </ion-card>
+    </div>
+</ion-content>
+<ion-footer class="flat">
+    <footer-tabs>
+    </footer-tabs>
+</ion-footer>

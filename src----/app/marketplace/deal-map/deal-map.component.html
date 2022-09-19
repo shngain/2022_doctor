@@ -1,0 +1,23 @@
+<ion-header class="flat">
+  <ion-toolbar class="colored">
+    <ion-buttons slot="start">
+      <ion-button slot="icon-only" class="back-button" color="light" (click)="dismissModal()">
+        <ion-icon md="md-arrow-back" ios="md-arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="light" text-center>{{title}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="light">
+        <ion-icon ios="md-more" md="md-more"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen class="map-wrapper">
+  <div class="address-bar">
+    {{address}}
+  </div>
+  <agm-map [latitude]="lat" [longitude]="lng" [streetViewControl]="false" [zoom]="14" [styles]="styles">
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  </agm-map>
+</ion-content>

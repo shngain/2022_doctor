@@ -1,0 +1,143 @@
+<ion-header class="flat">
+    <ion-toolbar class="colore">
+        <ion-buttons slot="start">
+            <ion-button color="dark" routerDirection="forward" routerLink="/account">
+                <ion-icon ios="md-contact" md="md-contact"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title color="dark" text-center>Home</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <section class="intro animated fadeIn" *ngIf="showReminder">
+        <img src="assets/images/doctor-intro.jpg" alt="doctor intro">
+        <div class="intro-text">
+            <h2>Hi</h2>
+            <p>It seems, some required profile information are missing or the submitted infromation is not certified. Due to that you've been given limited access to the features of the app.</p>
+            <a (click)="goToProfile()" class="go-btn">Go to Profile</a>
+            <a class="skip-btn">I'll do that later</a>
+        </div>
+    </section>
+    <section>
+        <ion-slides class="slides__dashboard featured mt-0 full-width" [options]="slideOpts" pager="true">
+            <!-- <div>
+      </div> -->
+            <ion-slide *ngFor='let data of row_data1'>
+                <div class="slides__featured">
+                    <div class="banner">
+                        <img class="baal-bimal" src='{{data.image}}' />
+                        <div class="main-text"></div>
+                    </div>
+                </div>
+            </ion-slide>
+
+        </ion-slides>
+    </section>
+    <!-- Social -->
+    <section>
+        <ion-label class="section__title" slot="start">
+            Services
+        </ion-label>
+        <div class="overscroll-wrapper">
+            <ion-slides class="slides__dashboard social" [options]="socialSlideOpts">
+                <ion-slide tappable>
+                    <div class="card" routerLink="/doctor/" routerDirection="forward">
+                        <div class="cover carecord"></div>
+                        <div class="title">Doctor</div>
+                    </div>
+                </ion-slide>
+                <ion-slide tappable>
+                    <div class="card" routerLink="/diag/" routerDirection="forward">
+                        <div class="cover diag"></div>
+                        <div class="title">Diagnostic</div>
+                    </div>
+                </ion-slide>
+                <ion-slide tappable>
+                    <div class="card" routerLink="/hospital/" routerDirection="forward">
+                        <div class="cover hospital"></div>
+                        <div class="title">Hospital</div>
+                    </div>
+                </ion-slide>
+                <ion-slide tappable>
+                    <div class="card" routerLink="/clinic/" routerDirection="forward">
+                        <div class="cover clinic"></div>
+                        <div class="title">Clinic</div>
+                    </div>
+                </ion-slide>
+            </ion-slides>
+        </div>
+    </section>
+    <!-- Patient Care -->
+    <section>
+        <ion-label class="section__title" slot="start">
+            Patient Care
+        </ion-label>
+        <div class="overscroll-wrapper">
+            <ion-slides class="slides__dashboard patient-care" [options]="careSlideOpts">
+                <ion-slide tappable>
+                    <div class="card" routerLink="/allapointment" routerDirection="forward">
+                        <div class="cover c-appoint"></div>
+                        <div class="title">Appointment</div>
+                    </div>
+                </ion-slide>
+                <ion-slide tappable>
+                    <div class="card" routerLink="/ht" routerDirection="forward">
+                        <div class="cover t-appoint"></div>
+                        <div class="title">Health Tips</div>
+                    </div>
+                </ion-slide>
+                <ion-slide tappable>
+                    <div class="card" routerLink="/per_blog" routerDirection="forward">
+                        <div class="cover referrals"></div>
+                        <div class="title">Health Blogs</div>
+                    </div>
+                </ion-slide>
+                <!-- <ion-slide tappable>
+          <div class="card" routerDirection="forward">
+            <div class="cover hn"></div>
+            <div class="title">Health News</div>
+          </div>
+        </ion-slide> -->
+            </ion-slides>
+        </div>
+    </section>
+    <!-- Appo -->
+    <section>
+        <ion-label class="section__title" slot="start">
+            Recent Appointments
+            <ion-text class="more-link" text-right routerLink="/allapointment" routerDirection="forward">See All
+            </ion-text>
+        </ion-label>
+        <div class="overscroll-wrapper">
+            <ion-slides class="slides__dashboard contact-list" [options]="patientsSlideOpts">
+                <ion-slide tappable *ngFor="let item of row_data" (click)="selectPatient(item.id)">
+                    <div class="contact">
+                        <div class="avatar">
+                            <img src="assets/images/appointment.png" alt="...">
+                        </div>
+                        <div class="name" *ngIf="item.booking_type=='doctor'">Doctor</div>
+                        <div class="name" *ngIf="item.booking_type=='diag'">Diagonistic</div>
+                        <div class="name" *ngIf="item.booking_type=='clinic'">Clinic</div>
+                        <div class="name" *ngIf="item.booking_type=='hospital'">Hospital</div>
+                        <div class="name">{{item.name}}</div>
+                        <span class="age">{{item.date}}, {{item.slot}}</span>
+                    </div>
+                </ion-slide>
+            </ion-slides>
+        </div>
+    </section>
+    <!-- Privacy policy -->
+    <section class="announcement static">
+        <div class="data-policies">
+            <div class="act" href="https://cureplus.online/privacypolicy.php">
+                <p href="https://cureplus.online/privacypolicy.php"><a href="https://cureplus.online/privacypolicy.php" style="padding-right: 20px;padding-left: 20px;">Privacy Policies </a> <a href="https://cureplus.online/tnc.php"> Terms and Conditions</a></p>
+                <p>Designed and Developed by</p>
+                <p> BitsBrigade</p>
+            </div>
+        </div>
+    </section>
+</ion-content>
+<ion-footer class="flat">
+    <footer-tabs>
+    </footer-tabs>
+</ion-footer>

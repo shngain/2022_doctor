@@ -1,0 +1,78 @@
+<ion-header class="flat">
+    <ion-toolbar class="colore">
+        <ion-buttons slot="start">
+            <ion-button color="dark" (click)="goBack()">
+                <ion-icon ios="md-arrow-back" md="md-arrow-back"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title color="dark" text-center>All Appointment</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <section class="intro animated fadeIn" *ngIf="showReminder">
+        <img src="assets/images/doctor-intro.jpg" alt="doctor intro">
+        <div class="intro-text">
+            <h2>Hi</h2>
+            <p>It seems, some required profile information are missing or the submitted infromation is not certified. Due to that you've been given limited access to the features of the app.</p>
+            <a (click)="goToProfile()" class="go-btn">Go to Profile</a>
+            <a class="skip-btn">I'll do that later</a>
+        </div>
+    </section>
+    <div *ngFor='let data of row_data'>
+        <ion-card>
+            <ion-card-header>
+                <ion-grid>
+                    <ion-row>
+
+                        <ion-col>
+                            <ion-card-title>Doctor/Clinic: {{data.name}}</ion-card-title>
+                            <div *ngIf="data.bookingstatus!=''">
+                                <ion-card-title style="color:green">Status: {{data.bookingstatus}}</ion-card-title>
+                            </div>
+                            <div *ngIf="data.bookingstatus==''">
+                                <ion-card-title style="color: darkgrey;">Status: Pending</ion-card-title>
+                            </div>
+                            <ion-card-subtitle class="classgap">Address: {{data.booking_address}}</ion-card-subtitle>
+                            <ion-card-subtitle class="classgap">Date: {{data.bokkingdatetime}}</ion-card-subtitle>
+                            <ion-card-subtitle class="classgap">Slot: {{data.slot}}</ion-card-subtitle>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-card-header>
+            <!-- <ion-card-content>
+        {{data.address}}
+        </ion-card-content> -->
+            <ion-card-content style="text-align: right;">
+
+                <ion-button color="danger" (click)="goto(data.id)">Reciept</ion-button>
+            </ion-card-content>
+        </ion-card>
+    </div>
+    <!-- <ion-card>
+    <ion-card-header>
+      <ion-grid>
+        <ion-row>
+          <ion-avatar>
+            <ion-col>
+              <img src="https://image.freepik.com/free-vector/doctor-icon-avatar-white_136162-58.jpg">
+            </ion-col>
+          </ion-avatar>
+          <ion-col>
+            <ion-card-title>Iron Man</ion-card-title>
+            <ion-card-subtitle>Medicine</ion-card-subtitle>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-header>
+    <ion-card-content>
+      GMCH, Guwahati
+    </ion-card-content>
+    <ion-card-content>
+      <ion-button color="danger">Booked</ion-button>
+    </ion-card-content>
+  </ion-card> -->
+</ion-content>
+<ion-footer class="flat">
+    <footer-tabs>
+    </footer-tabs>
+</ion-footer>

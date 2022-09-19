@@ -1,0 +1,40 @@
+<ion-content>
+  <div class="page__login h-100 bg__image">
+    <div class="ui__view__block">
+      <div class="content__centered p-0">
+        <div class="login-wrapper">
+          <div class="header">
+            <h2>Sign in to continue</h2>
+          </div>
+          <form [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit()">
+            <div class="input-row">
+              <mat-form-field appearance="outline" class="d-block">
+                <mat-label class="cff">Phone</mat-label>
+                <input matInput placeholder="Enter your number" spellcheck="false" formControlName="userId" type="number"
+                  class="cff" autocomplete="off">
+                <mat-error *ngIf="loginForm.controls['userId'].errors">{{getErrorMessage('id')}}</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="input-row">
+              <mat-form-field appearance="outline" class="d-block">
+                <mat-label class="cff">Password</mat-label>
+                <input matInput placeholder="Enter your password" formControlName="pw"
+                  [type]="pwHidden ? 'password' : 'text'" class="cff">
+                <mat-icon matSuffix (click)="pwHidden = !pwHidden">{{pwHidden ? 'visibility' : 'visibility_off'}}
+                </mat-icon>
+                <mat-error *ngIf="loginForm.controls['pw'].errors">{{getErrorMessage('pass')}}</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="input-row" (click)="forgot()">
+             <p style="color:blue">Reset Password with Email</p>
+            </div>
+            <div class="input-row">
+              <button class="btn__signin loading-btn" [class.loading]="formSubmitted" type="submit"
+                [disabled]="!loginForm.valid || formSubmitted">{{loginBtnText}}</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
